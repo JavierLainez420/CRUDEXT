@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
       /* Toast toast =
         Toast.makeText(this, "!Bienvenido " + nombree + " " + apellidoss+ "¡¡" , Toast.LENGTH_SHORT);
         toast.show();*/
-        //viewnombre.setText("Nombre: " + nombree +" " + apellidoss);
+        viewnombre.setText("Nombre: " + nombree +" " + apellidoss);
 
 
 

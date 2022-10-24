@@ -118,7 +118,7 @@ public class Productos extends Fragment {
             cargo = "Empleado";
         }
 
-        Toast.makeText(getContext(), "TIPO" + cargo, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "TIPO" + cargo, Toast.LENGTH_SHORT).show();
 
         sp_estadoProductos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -174,7 +174,6 @@ public class Productos extends Fragment {
 
             }
         });
-
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
