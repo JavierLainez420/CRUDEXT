@@ -179,7 +179,7 @@ public class Login extends AppCompatActivity {
 
 
                         if(id.length() > 0){
-                            /*Toast.makeText(context, "¡Bienvenido " + " " + nombre + " " + apellidos
+                            Toast.makeText(context, "¡Bienvenido " + " " + nombre + " " + apellidos
                                     , Toast.LENGTH_SHORT).show();
                            /* SharedPreferences spUsuario = context.getSharedPreferences("usuario", context.MODE_PRIVATE);
                             String estado = "logON";

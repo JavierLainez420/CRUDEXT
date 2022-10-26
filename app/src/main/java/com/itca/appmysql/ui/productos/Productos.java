@@ -114,11 +114,10 @@ public class Productos extends Fragment {
             btnmod.setClickable(true);
             cargo = "Administrador";
 
-        }else if (MainActivity.tipoo.equals("0")){
+        }else if (MainActivity.tipoo.equals("2")){
             cargo = "Empleado";
         }
 
-        //Toast.makeText(getContext(), "TIPO" + cargo, Toast.LENGTH_SHORT).show();
 
         sp_estadoProductos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -224,26 +223,38 @@ public class Productos extends Fragment {
                 String precio = et_precio.getText().toString();
                 String unidad = et_unidadmedida.getText().toString();
 
-                if(id.length() == 0){
-                    et_id.setError("Campo obligatorio.");
-                }else if(nombre.length() == 0){
-                    et_nombre_prod.setError("Campo obligatorio.");
-                }else if(descripcion.length() == 0){
-                    et_descripcion.setError("Campo obligatorio.");
-                }else if(stock.length() == 0){
-                    et_stock.setError("Campo obligatorio.");
-                }else if(precio.length() == 0){
-                    et_precio.setError("Campo obligatorio.");
-                }else if(unidad.length() == 0){
-                    et_unidadmedida.setError("Campo obligatorio.");
-                }else if(sp_estadoProductos.getSelectedItemPosition() == 0){
-                    Toast.makeText(getContext(), "Debe seleccionar el estado del producto.", Toast.LENGTH_SHORT).show();
-                }else if(sp_fk_categoria.getSelectedItemPosition() > 0){
-                    //Toast.makeText(getContext(), "Good...",Toast.LENGTH_SHORT).show();
-                    update_productos(getContext(), id, nombre, descripcion, stock, precio, unidad, datoStatusProduct, idcategoria);
-                }else{
-                    Toast.makeText(getContext(), "Debe seleccionar la categoria.", Toast.LENGTH_SHORT).show();
+
+                if (MainActivity.tipoo.equals("1")){
+                    btneliP.setClickable(true);
+                    btnmod.setClickable(true);
+                    if(id.length() == 0){
+                        et_id.setError("Campo obligatorio.");
+                    }else if(nombre.length() == 0){
+                        et_nombre_prod.setError("Campo obligatorio.");
+                    }else if(descripcion.length() == 0){
+                        et_descripcion.setError("Campo obligatorio.");
+                    }else if(stock.length() == 0){
+                        et_stock.setError("Campo obligatorio.");
+                    }else if(precio.length() == 0){
+                        et_precio.setError("Campo obligatorio.");
+                    }else if(unidad.length() == 0){
+                        et_unidadmedida.setError("Campo obligatorio.");
+                    }else if(sp_estadoProductos.getSelectedItemPosition() == 0){
+                        Toast.makeText(getContext(), "Debe seleccionar el estado del producto.", Toast.LENGTH_SHORT).show();
+                    }else if(sp_fk_categoria.getSelectedItemPosition() > 0){
+                        //Toast.makeText(getContext(), "Good...",Toast.LENGTH_SHORT).show();
+                        update_productos(getContext(), id, nombre, descripcion, stock, precio, unidad, datoStatusProduct, idcategoria);
+                    }else{
+                        Toast.makeText(getContext(), "Debe seleccionar la categoria.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else if (MainActivity.tipoo.equals("2")){
+                    Toast.makeText(getContext(), "Lo sentimos no tiene permisos para realizar esa accion", Toast.LENGTH_SHORT).show();
+                    btneliP.setClickable(false);
+
                 }
+
+
             }
         });
         btneliP.setOnClickListener(new View.OnClickListener() {
@@ -251,13 +262,25 @@ public class Productos extends Fragment {
             public void onClick(View view) {
                 String id = et_id.getText().toString();
 
-                if(id.length() == 0){
-                    et_id.setError("Campo obligatorio.");
 
-                }else{
-                    delete_productos(getContext(), id);
+                if (MainActivity.tipoo.equals("1")){
+                    btneliP.setClickable(true);
+                    btnmod.setClickable(true);
+                    if(id.length() == 0){
+                        et_id.setError("Campo obligatorio.");
+
+                    }else{
+                        delete_productos(getContext(), id);
+
+                    }
+
+                }else if (MainActivity.tipoo.equals("2")){
+                    Toast.makeText(getContext(), "Lo sentimos no tiene permisos para realizar esa accion", Toast.LENGTH_SHORT).show();
+                    btneliP.setClickable(false);
 
                 }
+
+
             }
         });
 

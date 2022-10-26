@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.itca.appmysql.MainActivity;
 import com.itca.appmysql.MySingleton;
 import com.itca.appmysql.R;
 import com.itca.appmysql.Setting_VAR;
@@ -46,6 +47,7 @@ public class Categorias extends Fragment {
     private Button btncat,btnNewc, btnmod, btneli;
     private TextView tvrespuesta;
     private ListView listC;
+    private String cargo = "";
 
 
     String datoSelect = "";
@@ -76,6 +78,16 @@ public class Categorias extends Fragment {
         btnNewc = root.findViewById(R.id.btnNew);
         tvrespuesta = root.findViewById(R.id.tvrespuesta);
         listC = list.findViewById(R.id.Viewcate);
+
+        if (MainActivity.tipoo.equals("1")){
+            btneli.setClickable(true);
+            btnmod.setClickable(true);
+            cargo = "Administrador";
+
+        }else if (MainActivity.tipoo.equals("2")){
+            cargo = "Empleado";
+        }
+
 
 
 
@@ -141,16 +153,26 @@ public class Categorias extends Fragment {
 
                 String dato = "";
 
-                if(idcategoria.length() == 0){
-                    etid.setError("Campo obligatorio");
-                }else if(nombrecat.length()==0){
-                    etnombre.setError("Campo obligatorio");
-                }else if(estado.length()==0){
-                    dato = "Debe seleccionar una ópcion";
-                    Toast.makeText(getContext(), ""+dato, Toast.LENGTH_SHORT).show();
-                }else{
-                    modificarCategoria(getContext(), Integer.parseInt(idcategoria), nombrecat, Integer.parseInt(estado));
+                if (MainActivity.tipoo.equals("1")){
+                    btneli.setClickable(true);
+                    btnmod.setClickable(true);
+                    if(idcategoria.length() == 0){
+                        etid.setError("Campo obligatorio");
+                    }else if(nombrecat.length()==0){
+                        etnombre.setError("Campo obligatorio");
+                    }else if(estado.length()==0){
+                        dato = "Debe seleccionar una ópcion";
+                        Toast.makeText(getContext(), ""+dato, Toast.LENGTH_SHORT).show();
+                    }else{
+                        modificarCategoria(getContext(), Integer.parseInt(idcategoria), nombrecat, Integer.parseInt(estado));
+                    }
+
+                }else if (MainActivity.tipoo.equals("2")){
+                    Toast.makeText(getContext(), "Lo sentimos no tiene permisos para realizar esa accion", Toast.LENGTH_SHORT).show();
+                    btnmod .setClickable(false);
                 }
+
+
             }
         });
         btneli.setOnClickListener(new View.OnClickListener() {
@@ -160,13 +182,25 @@ public class Categorias extends Fragment {
                 //recibirJson(getContext());
                 String idcategoria = etid.getText().toString();
 
+                if (MainActivity.tipoo.equals("1")){
+                    btneli.setClickable(true);
+                    btnmod.setClickable(true);
+                    if(idcategoria.length() == 0){
+                        etid.setError("Campo obligatorio");
 
-                if(idcategoria.length() == 0){
-                    etid.setError("Campo obligatorio");
+                    }else{
+                        eliminarCategoria(getContext(), Integer.parseInt(idcategoria));
+                    }
 
-                }else{
-                    eliminarCategoria(getContext(), Integer.parseInt(idcategoria));
+                }else if (MainActivity.tipoo.equals("2")){
+                    Toast.makeText(getContext(), "Lo sentimos no tiene permisos para realizar esa accion", Toast.LENGTH_SHORT).show();
+                    btneli .setClickable(false);
                 }
+
+
+
+
+
 
             }
         });
@@ -264,7 +298,7 @@ public class Categorias extends Fragment {
 
     }
     private void eliminarCategoria(final Context context, final int id_categoria) {
-        String url = "https://salva10012002.000webhostapp.com/service/eliminar_categoria.php";
+        String url = "https://javiergamezsis12a.000webhostapp.com/sw/eliminar_categoria.php";
         //String url = "http://localhost/service/guardar_categorias.php";
         StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override
@@ -304,7 +338,7 @@ public class Categorias extends Fragment {
 
 }
     private void modificarCategoria(final Context context, final int id_categoria, final String nom_categoria, final int estado_categoria) {
-        String url = "https://salva10012002.000webhostapp.com/service/actualizar_categorias.php";
+        String url = "https://javiergamezsis12a.000webhostapp.com/sw/actualizar_categoria.php";
         //String url = "http://localhost/service/guardar_categorias.php";
         StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override

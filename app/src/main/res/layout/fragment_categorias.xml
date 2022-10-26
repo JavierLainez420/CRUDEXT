@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:layout_margin = "5dp"
+    android:background="@drawable/fondo5"
     tools:context=".ui.categorias.Categorias">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -23,14 +22,14 @@
         android:gravity="center"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="#040404"
+        android:textColor="#0AE6C5"
         />
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/agregar_cat"
+        android:src="@drawable/objetivo"
         android:layout_marginTop="20dp"/>
 
     <!-- TODO: Update blank fragment layout -->
@@ -50,11 +49,12 @@
             android:layout_marginTop="0dp"
             android:drawableStart="@drawable/ic_key"
             android:drawablePadding="5dp"
+            android:background="@drawable/etcategorias"
             android:ems="10"
             android:hint="Ingrese id de categoria"
             android:inputType="phone"
             android:paddingLeft="1dp"
-            android:textColor="#03168B"
+            android:textColor="@color/chovi3"
             android:textSize="14dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -76,10 +76,11 @@
             android:drawableStart="@drawable/ic_descripcion"
             android:drawablePadding="5dp"
             android:ems="10"
+            android:background="@drawable/etcategorias"
             android:hint="Ingrese nombre de categoria"
             android:inputType="text"
             android:paddingLeft="1dp"
-            android:textColor="#03168B"
+            android:textColor="@color/chovi3"
             android:textSize="14dp"
             />
 
@@ -101,7 +102,6 @@
         android:layout_marginTop="3dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/white"
         >
 
         <androidx.appcompat.widget.AppCompatButton
@@ -139,7 +139,6 @@
         android:layout_marginTop="3dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/white"
         >
 
         <androidx.appcompat.widget.AppCompatButton

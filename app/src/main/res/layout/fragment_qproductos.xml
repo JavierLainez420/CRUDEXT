@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/amber"
+    android:background="@color/chovi3"
     tools:context=".ui.qproductos.Qproductos">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center"
-        android:background="#F40404"
+        android:background="#04F470"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="#120303"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
     </LinearLayout>
+
     <ListView
         android:id="@+id/ViewProduc"
         android:layout_width="match_parent"

@@ -35,9 +35,10 @@ public class RegistrarUsuario extends AppCompatActivity {
      private TextView fecha_registro;
      private Button btnRegistrar;
 
-    String datoSelectTipo = "";
+    int datoSelectTipo = 0;
     String datoSelectEstado = "";
     String datoSelectPregunta = "";
+    int datoSelectTipoo = 0;
 
 
 
@@ -66,9 +67,9 @@ public class RegistrarUsuario extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(tipo.getSelectedItemPosition()>0) {
-                    datoSelectTipo = tipo.getSelectedItem().toString();
+                    datoSelectTipo = tipo.getSelectedItemPosition();
                 }else{
-                    datoSelectTipo = "";
+                    datoSelectTipo = 0 ;
                 }
             }
             @Override
@@ -118,7 +119,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                 String emailUser = email.getText().toString();
                 String usuario = user.getText().toString();
                 String claveU = clave.getText().toString();
-                String tipo = datoSelectTipo;
+                int tipo = datoSelectTipo;
                 String estado = datoSelectEstado;
                 String pregunta = datoSelectPregunta;
                 String respuestaU = respuesta.getText().toString();
@@ -137,11 +138,15 @@ public class RegistrarUsuario extends AppCompatActivity {
                     user.setError("Campo obligatorio");
                 }else if(claveU.length()==0){
                     clave.setError("Campo obligatorio");
-                }else if(tipo.length()==0){
-                    dato = "Debe seleccionar una ópcion";
+               }else if(tipo==0){
+                    dato = "Debe seleccionar un tipo de usuario";
                     Toast.makeText(RegistrarUsuario.this, ""+dato, Toast.LENGTH_SHORT).show();
                 }else{
-                    guardarUser(RegistrarUsuario.this, Integer.parseInt(iduser), nombreUser, apellUser, emailUser, usuario, claveU, pregunta, respuestaU, Integer.parseInt(tipo), Integer.parseInt(estado));
+                    guardarUser(RegistrarUsuario.this, Integer.parseInt(iduser), nombreUser, apellUser, emailUser, usuario, claveU, pregunta, respuestaU, tipo
+                            , Integer.parseInt(estado));
+
+                    Intent intent = new Intent(RegistrarUsuario.this, Login.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -158,7 +163,7 @@ public class RegistrarUsuario extends AppCompatActivity {
     private void guardarUser(final Context context, final int id_user, final String nombreUser,
                              final String apellUser, final String emailUser, final String usuario,
                              final String claveU, final String pregunta, final String respuestaU, final int tipo, final int estado) {
-        String url = "";
+        String url = "https://javiergamezsis12a.000webhostapp.com/sw/guardar_usuario.php";
         //String url = "http://localhost/service/guardar_categorias.php";
         StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override

@@ -25,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    TextView viewnombre;
+    TextView viewnombre, nombrehome;
     public static String apellidoss, nombree, tipoo;
     Button btnregistrarPro;
     MenuItem itemProducto, itemCategoria;
+
 
 
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         viewnombre=findViewById(R.id.ethomnombre);
+        nombrehome = findViewById(R.id.tvnombreheade);
         Intent i = this.getIntent();
         String tipo = i.getStringExtra("tipo");
         String usuario = i.getStringExtra("usuario");
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "!Bienvenido " + nombree + " " + apellidoss+ "¡¡" , Toast.LENGTH_SHORT);
         toast.show();*/
         viewnombre.setText("Nombre: " + nombree +" " + apellidoss);
+       // nombrehome.setText("Nombre: " + nombree +" " + apellidoss);
 
 
 

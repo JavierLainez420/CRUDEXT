@@ -23,7 +23,7 @@ public class Setting_VAR {
     //URL para regsitrar productos nuevos.
     public static final String URL_registrar_productos = "https://javiergamezsis12a.000webhostapp.com/sw/guardar_productos.php";
     //public static final String URL_registrar_productos = "http://localhost/service/guardar_productos.php";
-    public static final String URL_modificar_productos = "https://salva10012002.000webhostapp.com/service/actualizar_producto.php";
+    public static final String URL_modificar_productos = "https://javiergamezsis12a.000webhostapp.com/sw/editar_producto.php";
 
     public static final String URL_eliminar_productos = "https://javiergamezsis12a.000webhostapp.com/sw/eliminar_producto.php";
 }

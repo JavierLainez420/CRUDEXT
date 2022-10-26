@@ -39,8 +39,8 @@
 
     <string-array name="tipoUser">
         <item>Seleccione un tipo de usuario</item>
-        <item>1</item>
-        <item>0</item>
+        <item>1 - Administrado</item>
+        <item>0 - Empleado</item>
     </string-array>
 
 
